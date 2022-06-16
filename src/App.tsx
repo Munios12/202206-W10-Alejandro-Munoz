@@ -6,6 +6,8 @@ import { gentlemanData } from "./data/gentlemanData";
 function App() {
   const [gentlemanListInfo, setGentlemanInfo] = useState(gentlemanData);
 
+  console.log(setGentlemanInfo);
+
   return (
     <div className="container">
       <header className="main-header">
