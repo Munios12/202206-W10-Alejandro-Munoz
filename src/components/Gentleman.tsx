@@ -1,15 +1,18 @@
 import { iGentlemanData } from "../interfaces/iGentlemanData";
+import { GentlemanButtonCheck } from "./GentlemanButtonCheck";
 
 export const Gentleman = ({
   individualData,
+  handleGentlemanStatus,
 }: {
   individualData: iGentlemanData;
+  handleGentlemanStatus(id: number): void;
 }) => {
-  console.log(individualData);
-
   return (
     <>
-      <li className="gentleman">
+      <li
+        className={"gentleman" + (individualData.selected ? " selected" : "")}
+      >
         <div className="gentleman__avatar-container">
           <img
             className="gentleman__avatar"
@@ -35,7 +38,7 @@ export const Gentleman = ({
             </li>
           </ul>
         </div>
-        <i className="icon gentleman__icon fas fa-check"></i>
+        <GentlemanButtonCheck isSelected={handleGentlemanStatus} />
         <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
       </li>
     </>

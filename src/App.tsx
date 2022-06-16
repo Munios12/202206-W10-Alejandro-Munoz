@@ -6,6 +6,16 @@ import { gentlemanData } from "./data/gentlemanData";
 function App() {
   const [gentlemanListInfo, setGentlemanInfo] = useState(gentlemanData);
 
+  const handleGentlemanStatus = (id: number) => {
+    setGentlemanInfo(
+      gentlemanListInfo.map((gentleman) => ({
+        ...gentleman,
+        selected:
+          gentleman.id === id ? !gentleman.selected : gentleman.selected,
+      }))
+    );
+  };
+
   console.log(setGentlemanInfo);
 
   return (
@@ -18,7 +28,10 @@ function App() {
         <button className="button button--select">Select all</button>
       </section>
       <main className="main">
-        <GentlemanList gentlemanListInfo={gentlemanListInfo} />
+        <GentlemanList
+          gentlemanListInfo={gentlemanListInfo}
+          handleGentlemanStatus={handleGentlemanStatus}
+        />
       </main>
     </div>
   );
