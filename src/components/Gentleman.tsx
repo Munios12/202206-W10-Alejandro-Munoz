@@ -19,7 +19,9 @@ export const Gentleman = ({
             src={individualData.picture}
             alt="The Fary pointing at you"
           />
-          <span className="gentleman__initial">F</span>
+          <span className="gentleman__initial">
+            {individualData.name[0].toUpperCase()}
+          </span>
         </div>
         <div className="gentleman__data-container">
           <h2 className="gentleman__name">{individualData.name}</h2>
