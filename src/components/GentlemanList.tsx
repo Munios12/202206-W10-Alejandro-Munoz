@@ -5,9 +5,11 @@ import { Gentleman } from "./Gentleman";
 export const GentlemanList = ({
   gentlemanListInfo,
   handleGentlemanStatus,
+  deleteGentleman,
 }: {
   gentlemanListInfo: Array<iGentlemanData>;
   handleGentlemanStatus(id: number): void;
+  deleteGentleman(id: number): void;
 }) => {
   return (
     <>
@@ -17,6 +19,7 @@ export const GentlemanList = ({
             key={gentleman.id}
             individualData={gentleman}
             handleGentlemanStatus={() => handleGentlemanStatus(gentleman.id)}
+            deleteGentleman={deleteGentleman}
           />
         ))}
       </ul>

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./App.css";
+import { Controller } from "./components/Controller";
+import { Gentleman } from "./components/Gentleman";
 import { GentlemanList } from "./components/GentlemanList";
 import { gentlemanData } from "./data/gentlemanData";
 
@@ -16,7 +18,20 @@ function App() {
     );
   };
 
-  console.log(setGentlemanInfo);
+  const selectAllGentleman = () => {
+    setGentlemanInfo(
+      gentlemanListInfo.map((gentleman) => ({
+        ...gentleman,
+        selected: true,
+      }))
+    );
+  };
+
+  const deleteGentleman = (id: number) => {
+    setGentlemanInfo(
+      gentlemanListInfo.filter((gentleman) => gentleman.id !== id)
+    );
+  };
 
   return (
     <div className="container">
@@ -24,13 +39,16 @@ function App() {
         <h1 className="main-title">The pointing gentlemen</h1>
       </header>
       <section className="controls">
-        <p className="info">0 gentlemen pointing at you</p>
-        <button className="button button--select">Select all</button>
+        <Controller
+          gentlemanListInfo={gentlemanListInfo}
+          selectAllGentleman={selectAllGentleman}
+        />
       </section>
       <main className="main">
         <GentlemanList
           gentlemanListInfo={gentlemanListInfo}
           handleGentlemanStatus={handleGentlemanStatus}
+          deleteGentleman={deleteGentleman}
         />
       </main>
     </div>

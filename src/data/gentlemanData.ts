@@ -9,7 +9,7 @@ export const gentlemanData: Array<iGentlemanData> = [
     twitter: "@osbourne",
     picture: "img/bertin.jpg",
     alternativeText: "Osbourne pointing at you",
-    selected: true,
+    selected: false,
   },
   {
     id: 2,
@@ -29,6 +29,6 @@ export const gentlemanData: Array<iGentlemanData> = [
     twitter: "@julius_churchs",
     picture: "img/julio.jpg",
     alternativeText: "Churchs pointing at you",
-    selected: true,
+    selected: false,
   },
 ];

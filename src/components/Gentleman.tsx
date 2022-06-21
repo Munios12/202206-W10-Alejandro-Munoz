@@ -1,12 +1,15 @@
 import { iGentlemanData } from "../interfaces/iGentlemanData";
 import { GentlemanButtonCheck } from "./GentlemanButtonCheck";
+import { GentlemanButtonDelete } from "./GentlemanButtonDelete";
 
 export const Gentleman = ({
   individualData,
   handleGentlemanStatus,
+  deleteGentleman,
 }: {
   individualData: iGentlemanData;
   handleGentlemanStatus(id: number): void;
+  deleteGentleman(id: number): void;
 }) => {
   return (
     <>
@@ -40,8 +43,14 @@ export const Gentleman = ({
             </li>
           </ul>
         </div>
-        <GentlemanButtonCheck isSelected={handleGentlemanStatus} />
-        <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
+        <GentlemanButtonCheck
+          isSelected={handleGentlemanStatus}
+          individualData={individualData}
+        />
+        <GentlemanButtonDelete
+          deleteGentleman={deleteGentleman}
+          individualData={individualData}
+        />
       </li>
     </>
   );
