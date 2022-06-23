@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 import { Controller } from "./components/Controller";
-import { Gentleman } from "./components/Gentleman";
 import { GentlemanList } from "./components/GentlemanList";
 import { gentlemanData } from "./data/gentlemanData";
 
